@@ -19,11 +19,27 @@
       <div v-for="(menu, index) in menus" :key="index" class="menu__item">
         <nuxt-link
           class="menu-parts"
-          :to="`/${menu.path}`"
+          :to="`/${menu.path[0]}`"
           event=""
           @click.native.prevent="trigger"
           v-text="menu.name"
         ></nuxt-link>
+        <div v-if="menu.sub">
+          <nuxt-link
+            class="sub-parts"
+            :to="`/${menu.path[1]}`"
+            event=""
+            @click.native.prevent="trigger"
+            v-text="menu.sub[0]"
+          ></nuxt-link>
+          <nuxt-link
+            class="sub-parts"
+            :to="`/${menu.path[2]}`"
+            event=""
+            @click.native.prevent="trigger"
+            v-text="menu.sub[1]"
+          ></nuxt-link>
+        </div>
       </div>
     </div>
   </div>
@@ -36,13 +52,23 @@ export default {
       active: false,
       windowWidth: 900,
       menus: [
-        { id: 1, name: 'TOP', path: '' },
-        { id: 2, name: 'ABOUT', path: 'about' },
-        { id: 3, name: 'HISTORY', path: 'history' },
-        { id: 4, name: 'DISCOGRAPHY', path: 'discography' },
-        { id: 5, name: 'MEMBER', path: 'member' },
-        { id: 6, name: 'GALLERY', path: 'gallery' },
-        { id: 7, name: 'LINK', path: 'link' },
+        { id: 1, name: 'TOP', path: [''] },
+        { id: 2, name: 'ABOUT', path: ['about'] },
+        {
+          id: 3,
+          name: 'HISTORY',
+          sub: ['- SAKURAZAKA'],
+          path: ['history', 'history/sakurazaka'],
+        },
+        { id: 4, name: 'DISCOGRAPHY', path: ['discography'] },
+        {
+          id: 5,
+          name: 'MEMBER',
+          sub: ['- 1期生', '- 2期生'],
+          path: ['member', 'member/first', 'member/second'],
+        },
+        { id: 6, name: 'GALLERY', path: ['gallery'] },
+        { id: 7, name: 'LINK', path: ['link'] },
       ],
     };
   },
@@ -171,12 +197,15 @@ export default {
   text-decoration: none;
   box-sizing: border-box;
 }
-.menu__item a {
+.menu__item .menu-parts {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   right: 0;
   text-decoration: none;
-  font-size: 18px;
   color: #ffffff;
+}
+.sub-parts {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 0.7rem;
 }
 /*----------------------------
 * アニメーション部分

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TopMessage from '../components/Organisms/TopMessage.vue';
+import TopMessage from '~/components/Organisms/TopMessage.vue';
 export default {
   components: {
     TopMessage,
@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       sub: 'HISTORY OF',
-      title: 'KEYAKIZAKA46',
+      title: 'MEMBER',
       date: '20150821-20201013',
     };
   },
