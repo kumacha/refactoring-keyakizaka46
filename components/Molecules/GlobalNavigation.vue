@@ -48,27 +48,6 @@ export default {
     pageJump(link) {
       this.$router.push(link);
     },
-    pushTOP() {
-      this.$router.push('/');
-    },
-    pushABOUT() {
-      this.$router.push('/about');
-    },
-    pushHISTORY() {
-      this.$router.push('/history');
-    },
-    pushDISCOGRAPHY() {
-      this.$router.push('/discography');
-    },
-    pushMEMBER() {
-      this.$router.push('/member');
-    },
-    pushGALLERY() {
-      this.$router.push('/gallery');
-    },
-    pushLINK() {
-      this.$router.push('/link');
-    },
   },
 };
 </script>
