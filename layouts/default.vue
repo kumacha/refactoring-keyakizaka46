@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <hamburger-menu />
+    <Gomi />
     <GlobalNavigation />
     <v-main>
       <v-container>
@@ -13,12 +13,12 @@
 
 <script>
 import KeyakizakaVideo from '~/components/Atoms/BackGroundVideo.vue';
-import HamburgerMenu from '~/components/Molecules/HamburgerMenu.vue';
+import Gomi from '~/components/Molecules/NoComponents.vue';
 import GlobalNavigation from '~/components/Molecules/GlobalNavigation.vue';
 export default {
   components: {
     KeyakizakaVideo,
-    HamburgerMenu,
+    Gomi,
     GlobalNavigation,
   },
   data() {

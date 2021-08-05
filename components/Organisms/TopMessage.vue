@@ -2,9 +2,9 @@
   <v-container>
     <v-row style="height: 70vh" justify="center" align-content="center">
       <div class="logo">
-        <p class="hislogo sublogo" v-text="subTitle">HISTORY OF</p>
-        <p class="keyakilogo biglogo" v-text="mainTitle">KEYAKIZAKA46</p>
-        <p class="dayslogo sublogo" v-text="subDate">20150821-20201013</p>
+        <p class="hislogo sublogo" v-text="subTitle"></p>
+        <p class="keyakilogo biglogo" v-text="mainTitle"></p>
+        <p class="dayslogo sublogo" v-text="subDate"></p>
       </div>
     </v-row>
   </v-container>

@@ -17,28 +17,22 @@
     </div>
     <div class="menu" :class="{ 'is-active': active }">
       <div v-for="(menu, index) in menus" :key="index" class="menu__item">
-        <nuxt-link
+        <p
           class="menu-parts"
-          :to="`/${menu.path[0]}`"
-          event=""
-          @click.native.prevent="trigger"
+          @click.native.prevent="trigger({ path: menu.path })"
           v-text="menu.name"
-        ></nuxt-link>
+        ></p>
         <div v-if="menu.sub">
-          <nuxt-link
+          <p
             class="sub-parts"
-            :to="`/${menu.path[1]}`"
-            event=""
-            @click.native.prevent="trigger"
+            @click.native.prevent="trigger({ path: menu.path })"
             v-text="menu.sub[0]"
-          ></nuxt-link>
-          <nuxt-link
+          ></p>
+          <p
             class="sub-parts"
-            :to="`/${menu.path[2]}`"
-            event=""
-            @click.native.prevent="trigger"
+            @click.native.prevent="trigger({ path: menu.path })"
             v-text="menu.sub[1]"
-          ></nuxt-link>
+          ></p>
         </div>
       </div>
     </div>
@@ -52,23 +46,23 @@ export default {
       active: false,
       windowWidth: 900,
       menus: [
-        { id: 1, name: 'TOP', path: [''] },
-        { id: 2, name: 'ABOUT', path: ['about'] },
+        { id: 1, name: 'TOP', path: ['/'] },
+        { id: 2, name: 'ABOUT', path: ['/about'] },
         {
           id: 3,
           name: 'HISTORY',
           sub: ['- SAKURAZAKA'],
-          path: ['history', 'history/sakurazaka'],
+          path: ['/history', '/history/sakurazaka'],
         },
-        { id: 4, name: 'DISCOGRAPHY', path: ['discography'] },
+        { id: 4, name: 'DISCOGRAPHY', path: ['//discography'] },
         {
           id: 5,
           name: 'MEMBER',
           sub: ['- 1期生', '- 2期生'],
-          path: ['member', 'member/first', 'member/second'],
+          path: ['/member', '/member/first', '/member/second'],
         },
-        { id: 6, name: 'GALLERY', path: ['gallery'] },
-        { id: 7, name: 'LINK', path: ['link'] },
+        { id: 6, name: 'GALLERY', path: ['/gallery'] },
+        { id: 7, name: 'LINK', path: ['/link'] },
       ],
     };
   },
@@ -91,12 +85,12 @@ export default {
     });
   },
   methods: {
-    trigger() {
+    trigger(link) {
       if (this.isMobile) {
         this.active = false;
-        this.$router.push({ path: event.target.pathname });
+        this.$router.push(link);
       } else {
-        this.$router.push({ path: event.target.pathname });
+        this.$router.push(link);
       }
     },
   },
