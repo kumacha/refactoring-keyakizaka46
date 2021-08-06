@@ -1,13 +1,13 @@
 import colors from 'vuetify/es5/util/colors';
 
 require('dotenv').config();
-const { API_KEY } = process.env;
-const { AUTH_DOMAIN } = process.env;
-const { PROJECT_ID } = process.env;
-const { STRAGE_BUCKET } = process.env;
-const { MESSAGEING_SENDER_ID } = process.env;
-const { APP_ID } = process.env;
-const { MEASUREMENT_ID } = process.env;
+const { FIREBASE_API_KEY } = process.env;
+const { FIREBASE_AUTH_DOMAIN } = process.env;
+const { FIREBASE_PROJECT_ID } = process.env;
+const { FIREBASE_STRAGE_BUCKET } = process.env;
+const { FIREBASE_MESSAGEING_SENDER_ID } = process.env;
+const { FIREBASE_APP_ID } = process.env;
+const { FIREBASE_MEASUREMENT_ID } = process.env;
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -18,8 +18,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - refactoring-keyakizaka46',
-    title: 'refactoring-keyakizaka46',
+    titleTemplate: '%s - 欅坂46非公式ページ',
+    title: '欅坂46非公式ページ',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -87,13 +87,13 @@ export default {
   build: {
     extractCSS: true,
     env: {
-      API_KEY,
-      AUTH_DOMAIN,
-      PROJECT_ID,
-      STRAGE_BUCKET,
-      MESSAGEING_SENDER_ID,
-      APP_ID,
-      MEASUREMENT_ID,
+      FIREBASE_API_KEY,
+      FIREBASE_AUTH_DOMAIN,
+      FIREBASE_PROJECT_ID,
+      FIREBASE_STRAGE_BUCKET,
+      FIREBASE_MESSAGEING_SENDER_ID,
+      FIREBASE_APP_ID,
+      FIREBASE_MEASUREMENT_ID,
     },
   },
 };

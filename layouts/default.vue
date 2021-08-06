@@ -30,8 +30,8 @@ export default {
       drawer: false,
       fixed: false,
       sakuraPath: '/history/sakurazaka',
-      src: 'video/keyaki-backmovie.mp4',
-      sakuraSrc: '../video/sakura-backmovie.mp4',
+      src: require('~/assets/video/keyaki-backmovie.mp4'),
+      sakuraSrc: require('~/assets/video/sakura-backmovie.mp4'),
       type: 'video/mp4',
       items: [
         {
