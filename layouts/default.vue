@@ -1,10 +1,13 @@
 <template>
   <v-app dark>
-    <Gomi />
+    <HamburgerMenu />
     <GlobalNavigation />
     <v-main>
       <v-container>
-        <keyakizaka-video :video-src="src" :video-type="type" />
+        <div v-if="$route.path === sakuraPath">
+          <back-ground-video :video-src="sakuraSrc" :video-type="type" />
+        </div>
+        <div v-else><back-ground-video :video-src="src" :video-type="type" /></div>
         <Nuxt />
       </v-container>
     </v-main>
@@ -12,13 +15,13 @@
 </template>
 
 <script>
-import KeyakizakaVideo from '~/components/Atoms/BackGroundVideo.vue';
-import Gomi from '~/components/Molecules/NoComponents.vue';
+import BackGroundVideo from '~/components/Atoms/BackGroundVideo.vue';
+import HamburgerMenu from '~/components/Molecules/HamburgerMenu.vue';
 import GlobalNavigation from '~/components/Molecules/GlobalNavigation.vue';
 export default {
   components: {
-    KeyakizakaVideo,
-    Gomi,
+    BackGroundVideo,
+    HamburgerMenu,
     GlobalNavigation,
   },
   data() {
@@ -26,7 +29,9 @@ export default {
       clipped: false,
       drawer: false,
       fixed: false,
+      sakuraPath: '/history/sakurazaka',
       src: 'video/keyaki-backmovie.mp4',
+      sakuraSrc: '../video/sakura-backmovie.mp4',
       type: 'video/mp4',
       items: [
         {

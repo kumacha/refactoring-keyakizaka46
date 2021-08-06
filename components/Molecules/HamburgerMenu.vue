@@ -17,22 +17,28 @@
     </div>
     <div class="menu" :class="{ 'is-active': active }">
       <div v-for="(menu, index) in menus" :key="index" class="menu__item">
-        <p
+        <nuxt-link
           class="menu-parts"
-          @click.native.prevent="trigger({ path: menu.path })"
+          :to="`/${menu.path[0]}`"
+          event=""
+          @click.native.prevent="trigger"
           v-text="menu.name"
-        ></p>
+        ></nuxt-link>
         <div v-if="menu.sub">
-          <p
+          <nuxt-link
             class="sub-parts"
-            @click.native.prevent="trigger({ path: menu.path })"
+            :to="`/${menu.path[1]}`"
+            event=""
+            @click.native.prevent="trigger"
             v-text="menu.sub[0]"
-          ></p>
-          <p
+          ></nuxt-link>
+          <nuxt-link
             class="sub-parts"
-            @click.native.prevent="trigger({ path: menu.path })"
+            :to="`/${menu.path[2]}`"
+            event=""
+            @click.native.prevent="trigger"
             v-text="menu.sub[1]"
-          ></p>
+          ></nuxt-link>
         </div>
       </div>
     </div>
@@ -46,23 +52,23 @@ export default {
       active: false,
       windowWidth: 900,
       menus: [
-        { id: 1, name: 'TOP', path: ['/'] },
-        { id: 2, name: 'ABOUT', path: ['/about'] },
+        { id: 1, name: 'TOP', path: [''] },
+        { id: 2, name: 'ABOUT', path: ['about'] },
         {
           id: 3,
           name: 'HISTORY',
           sub: ['- SAKURAZAKA'],
-          path: ['/history', '/history/sakurazaka'],
+          path: ['history', 'history/sakurazaka'],
         },
-        { id: 4, name: 'DISCOGRAPHY', path: ['//discography'] },
+        { id: 4, name: 'DISCOGRAPHY', path: ['discography'] },
         {
           id: 5,
           name: 'MEMBER',
           sub: ['- 1期生', '- 2期生'],
-          path: ['/member', '/member/first', '/member/second'],
+          path: ['member', 'member/first', 'member/second'],
         },
-        { id: 6, name: 'GALLERY', path: ['/gallery'] },
-        { id: 7, name: 'LINK', path: ['/link'] },
+        { id: 6, name: 'GALLERY', path: ['gallery'] },
+        { id: 7, name: 'LINK', path: ['link'] },
       ],
     };
   },
@@ -85,12 +91,12 @@ export default {
     });
   },
   methods: {
-    trigger(link) {
+    trigger() {
       if (this.isMobile) {
         this.active = false;
-        this.$router.push(link);
+        this.$router.push({ path: event.target.pathname });
       } else {
-        this.$router.push(link);
+        this.$router.push({ path: event.target.pathname });
       }
     },
   },
@@ -165,7 +171,6 @@ export default {
   align-items: center;
   color: #fff;
 }
-
 /*----------------------------
 * メニュー本体
 *----------------------------*/
@@ -180,8 +185,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: black;
-  opacity: 80%;
+  background-color: rgba(3, 0, 0, 0.85);
 }
 .menu__item {
   width: 100%;
@@ -191,20 +195,20 @@ export default {
   text-decoration: none;
   box-sizing: border-box;
 }
-.menu__item .menu-parts {
+.menu-parts a {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   right: 0;
   text-decoration: none;
+  font-size: 18px;
   color: #ffffff;
 }
 .sub-parts {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 0.7rem;
+  font-size: 12px;
 }
 /*----------------------------
 * アニメーション部分
 *----------------------------*/
-
 /* アニメーション前のメニューの状態 */
 .menu {
   transform: translateX(100vw);

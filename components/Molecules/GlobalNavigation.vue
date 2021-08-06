@@ -19,7 +19,7 @@ export default {
         { id: 1, name: 'TOP', path: '/' },
         { id: 2, name: 'ABOUT', path: '/about' },
         { id: 3, name: 'HISTORY', path: '/history' },
-        { id: 4, name: 'DISCOGRAPHY', path: 'discography' },
+        { id: 4, name: 'DISCOGRAPHY', path: '/discography' },
         { id: 5, name: 'MEMBER', path: '/member' },
         { id: 6, name: 'GALLERY', path: '/gallery' },
         { id: 7, name: 'LINK', path: '/link' },

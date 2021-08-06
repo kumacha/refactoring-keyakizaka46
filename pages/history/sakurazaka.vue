@@ -8,7 +8,6 @@ export default {
   components: {
     TopMessage,
   },
-  layout: 'sakura',
   data() {
     return {
       sub: 'DEBUT OF',
