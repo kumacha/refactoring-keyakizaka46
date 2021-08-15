@@ -18,7 +18,6 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - 欅坂46非公式ページ',
     title: '欅坂46非公式ページ',
     meta: [
       { charset: 'utf-8' },

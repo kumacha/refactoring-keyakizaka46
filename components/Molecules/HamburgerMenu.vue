@@ -116,7 +116,9 @@ export default {
   z-index: 110;
 }
 .menu-trigger {
-  position: relative;
+  right: 10px;
+  top: 10px;
+  position: fixed;
   width: 20px;
   height: 16px;
   background: none;
